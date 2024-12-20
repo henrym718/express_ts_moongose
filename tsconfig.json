@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "target": "es2016",
+        "outDir": "./dist",
+        "rootDir": "./src",
+        "strict": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+        "baseUrl": "./src",
+        "paths": {
+            "@controllers/*": ["controllers/*"],
+            "@services/*": ["services/*"],
+            "@repositories/*": ["repositories/*"],
+            "@models/*": ["models/*"],
+            "@routes/*": ["routes/*"],
+            "@boostraps/*": ["boostraps/*"],
+            "@config/*": ["config/*"]
+        }
+    },
+    "include": ["src"],
+    "exclude": ["mode_modules"],
+    "ts-node": {
+        "require": ["tsconfig-paths/register"]
+    }
+}
