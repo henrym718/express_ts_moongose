@@ -1,6 +1,8 @@
 import express, { Application, urlencoded } from "express";
 import http from "http";
 import cors from "cors";
+import { logger } from "@config/logger";
+import { env } from "@config/env";
 
 export class BootstrapServer {
     private static instance: BootstrapServer;
@@ -27,12 +29,12 @@ export class BootstrapServer {
 
     public async initialize(): Promise<void> {
         return new Promise((resolve, reject) => {
-            const PORT = 4000;
+            const PORT = env.PORT;
             this.httpServer = http.createServer(this.app);
-
             this.httpServer
                 .listen(PORT)
                 .on("listening", () => {
+                    logger.info("Servidor runing on port " + PORT);
                     resolve();
                 })
                 .on("error", (error) => {
